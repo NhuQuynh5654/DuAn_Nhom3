@@ -18,7 +18,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Class"
+                    "$ref": "#/components/schemas/ClassInfoDto"
                   }
                 }
               },
@@ -26,7 +26,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Class"
+                    "$ref": "#/components/schemas/ClassInfoDto"
                   }
                 }
               },
@@ -34,7 +34,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Class"
+                    "$ref": "#/components/schemas/ClassInfoDto"
                   }
                 }
               }
@@ -89,6 +89,44 @@
         }
       }
     },
+    "/api/Classes/info": {
+      "get": {
+        "tags": [
+          "Classes"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ClassInfoDto"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ClassInfoDto"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ClassInfoDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/Classes/{id}": {
       "get": {
         "tags": [
@@ -111,17 +149,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/Class"
+                  "$ref": "#/components/schemas/ClassInfoDto"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Class"
+                  "$ref": "#/components/schemas/ClassInfoDto"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Class"
+                  "$ref": "#/components/schemas/ClassInfoDto"
                 }
               }
             }
@@ -356,6 +394,191 @@
       "delete": {
         "tags": [
           "Classtypes"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Departmentleaders": {
+      "get": {
+        "tags": [
+          "Departmentleaders"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Departmentleader"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Departmentleader"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Departmentleader"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Departmentleaders"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Departmentleader"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Departmentleader"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Departmentleader"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Departmentleader"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Departmentleader"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Departmentleader"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Departmentleaders/{id}": {
+      "get": {
+        "tags": [
+          "Departmentleaders"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Departmentleader"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Departmentleader"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Departmentleader"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Departmentleaders"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Departmentleader"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Departmentleader"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Departmentleader"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Departmentleaders"
         ],
         "parameters": [
           {
@@ -1300,6 +1523,191 @@
         }
       }
     },
+    "/api/Semesters": {
+      "get": {
+        "tags": [
+          "Semesters"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Semester"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Semester"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Semester"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Semesters"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Semester"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Semester"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Semester"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Semester"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Semester"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Semester"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Semesters/{id}": {
+      "get": {
+        "tags": [
+          "Semesters"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Semester"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Semester"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Semester"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Semesters"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Semester"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Semester"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Semester"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Semesters"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
     "/api/Subjects": {
       "get": {
         "tags": [
@@ -1955,6 +2363,36 @@
         },
         "additionalProperties": false
       },
+      "ClassInfoDto": {
+        "type": "object",
+        "properties": {
+          "classid": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "classname": {
+            "type": "string",
+            "nullable": true
+          },
+          "subjectCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "teacherFullname": {
+            "type": "string",
+            "nullable": true
+          },
+          "classTypeName": {
+            "type": "string",
+            "nullable": true
+          },
+          "schoolYear": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "Classtype": {
         "type": "object",
         "properties": {
@@ -2000,6 +2438,38 @@
             "nullable": true
           },
           "updatedat": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Departmentleader": {
+        "type": "object",
+        "properties": {
+          "departmentleaderid": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "departmentid": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "schoolyearid": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "teacherid": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "startdate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "enddate": {
             "type": "string",
             "format": "date-time",
             "nullable": true
@@ -2173,6 +2643,45 @@
             "type": "string",
             "format": "date-time",
             "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Semester": {
+        "type": "object",
+        "properties": {
+          "semesterid": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "schoolyearid": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "semestername": {
+            "type": "string",
+            "nullable": true
+          },
+          "startdate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "enddate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "createdat": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "updatedat": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "schoolyear": {
+            "$ref": "#/components/schemas/Schoolyear"
           }
         },
         "additionalProperties": false

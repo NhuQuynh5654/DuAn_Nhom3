@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using DuAnThucTap.Data;
 using DuAnThucTap.Model;
+using DuAnThucTap.Irepository;
+using DuAnThucTap.DTO;
 
 namespace DuAnThucTap.Controllers
 {
@@ -14,111 +16,72 @@ namespace DuAnThucTap.Controllers
     [ApiController]
     public class ClassesController : ControllerBase
     {
-        private readonly ApplicationDbContext _context;
-
-        public ClassesController(ApplicationDbContext context)
+        private readonly IClassService _classService;
+        public ClassesController(IClassService classService)
         {
-            _context = context;
+            _classService = classService;
         }
 
-        // GET: api/Classes
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Class>>> GetClasses()
+        public async Task<ActionResult<IEnumerable<ClassInfoDto>>> GetAllClasses()
         {
-          if (_context.Classes == null)
-          {
-              return NotFound();
-          }
-            return await _context.Classes.ToListAsync();
+            var classes = await _classService.GetAllClass();
+            return Ok(classes);
         }
 
-        // GET: api/Classes/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Class>> GetClass(int id)
+        public async Task<ActionResult<IEnumerable<ClassInfoDto>>> GetClassInfo(int id)
         {
-          if (_context.Classes == null)
-          {
-              return NotFound();
-          }
-            var @class = await _context.Classes.FindAsync(id);
+            var classInfos = await _classService.GetInfoClass(id);
+            return Ok(classInfos);
+        }
 
-            if (@class == null)
+        [HttpGet("{id}")]
+        public async Task<ActionResult<ClassInfoDto>> GetClassById(int id)
+        {
+            var classInfo = await _classService.GetByIdAsync(id);
+            if (classInfo == null)
             {
                 return NotFound();
             }
-
-            return @class;
+            return Ok(classInfo);
         }
 
-        // PUT: api/Classes/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutClass(int id, Class @class)
+        [HttpPost]
+        public async Task<ActionResult<Class>> CreateClass(Class classEntity)
         {
-            if (id != @class.Classid)
+            if (classEntity == null)
             {
-                return BadRequest();
+                return BadRequest("Invalid class data.");
             }
+            var createdClass = await _classService.CreateAsync(classEntity);
+            return CreatedAtAction(nameof(GetClassById), new { id = createdClass.Classid }, createdClass);
+        }
 
-            _context.Entry(@class).State = EntityState.Modified;
-
-            try
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateClass(int id, Class classEntity)
+        {
+            if (id != classEntity.Classid)
             {
-                await _context.SaveChangesAsync();
+                return BadRequest("Class ID mismatch.");
             }
-            catch (DbUpdateConcurrencyException)
+            var updated = await _classService.UpdateAsync(id, classEntity);
+            if (!updated)
             {
-                if (!ClassExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
+                return NotFound();
             }
-
             return NoContent();
         }
 
-        // POST: api/Classes
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPost]
-        public async Task<ActionResult<Class>> PostClass(Class @class)
-        {
-          if (_context.Classes == null)
-          {
-              return Problem("Entity set 'ApplicationDbContext.Classes'  is null.");
-          }
-            _context.Classes.Add(@class);
-            await _context.SaveChangesAsync();
-
-            return CreatedAtAction("GetClass", new { id = @class.Classid }, @class);
-        }
-
-        // DELETE: api/Classes/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteClass(int id)
         {
-            if (_context.Classes == null)
+            var deleted = await _classService.DeleteAsync(id);
+            if (!deleted)
             {
                 return NotFound();
             }
-            var @class = await _context.Classes.FindAsync(id);
-            if (@class == null)
-            {
-                return NotFound();
-            }
-
-            _context.Classes.Remove(@class);
-            await _context.SaveChangesAsync();
-
             return NoContent();
-        }
-
-        private bool ClassExists(int id)
-        {
-            return (_context.Classes?.Any(e => e.Classid == id)).GetValueOrDefault();
         }
     }
 }

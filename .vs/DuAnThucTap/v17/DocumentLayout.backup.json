@@ -1,0 +1,224 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\ISC_HG\\Github\\Test_DA_NhuNgo\\DuAn_Nhom3\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{ED7399D1-71FA-4E0F-A2D5-0C5E19F340BE}|DuAnThucTap\\DuAnThucTap.csproj|d:\\isc_hg\\github\\test_da_nhungo\\duan_nhom3\\duanthuctap\\dto\\classinfodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ED7399D1-71FA-4E0F-A2D5-0C5E19F340BE}|DuAnThucTap\\DuAnThucTap.csproj|solutionrelative:duanthuctap\\dto\\classinfodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ED7399D1-71FA-4E0F-A2D5-0C5E19F340BE}|DuAnThucTap\\DuAnThucTap.csproj|d:\\isc_hg\\github\\test_da_nhungo\\duan_nhom3\\duanthuctap\\service\\classservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ED7399D1-71FA-4E0F-A2D5-0C5E19F340BE}|DuAnThucTap\\DuAnThucTap.csproj|solutionrelative:duanthuctap\\service\\classservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ED7399D1-71FA-4E0F-A2D5-0C5E19F340BE}|DuAnThucTap\\DuAnThucTap.csproj|d:\\isc_hg\\github\\test_da_nhungo\\duan_nhom3\\duanthuctap\\controllers\\classescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ED7399D1-71FA-4E0F-A2D5-0C5E19F340BE}|DuAnThucTap\\DuAnThucTap.csproj|solutionrelative:duanthuctap\\controllers\\classescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ED7399D1-71FA-4E0F-A2D5-0C5E19F340BE}|DuAnThucTap\\DuAnThucTap.csproj|d:\\isc_hg\\github\\test_da_nhungo\\duan_nhom3\\duanthuctap\\irepository\\iclassservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ED7399D1-71FA-4E0F-A2D5-0C5E19F340BE}|DuAnThucTap\\DuAnThucTap.csproj|solutionrelative:duanthuctap\\irepository\\iclassservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ED7399D1-71FA-4E0F-A2D5-0C5E19F340BE}|DuAnThucTap\\DuAnThucTap.csproj|d:\\isc_hg\\github\\test_da_nhungo\\duan_nhom3\\duanthuctap\\model\\schoolyear.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ED7399D1-71FA-4E0F-A2D5-0C5E19F340BE}|DuAnThucTap\\DuAnThucTap.csproj|solutionrelative:duanthuctap\\model\\schoolyear.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ED7399D1-71FA-4E0F-A2D5-0C5E19F340BE}|DuAnThucTap\\DuAnThucTap.csproj|d:\\isc_hg\\github\\test_da_nhungo\\duan_nhom3\\duanthuctap\\model\\class.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ED7399D1-71FA-4E0F-A2D5-0C5E19F340BE}|DuAnThucTap\\DuAnThucTap.csproj|solutionrelative:duanthuctap\\model\\class.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ED7399D1-71FA-4E0F-A2D5-0C5E19F340BE}|DuAnThucTap\\DuAnThucTap.csproj|d:\\isc_hg\\github\\test_da_nhungo\\duan_nhom3\\duanthuctap\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ED7399D1-71FA-4E0F-A2D5-0C5E19F340BE}|DuAnThucTap\\DuAnThucTap.csproj|solutionrelative:duanthuctap\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ED7399D1-71FA-4E0F-A2D5-0C5E19F340BE}|DuAnThucTap\\DuAnThucTap.csproj|d:\\isc_hg\\github\\test_da_nhungo\\duan_nhom3\\duanthuctap\\model\\teacher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ED7399D1-71FA-4E0F-A2D5-0C5E19F340BE}|DuAnThucTap\\DuAnThucTap.csproj|solutionrelative:duanthuctap\\model\\teacher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ED7399D1-71FA-4E0F-A2D5-0C5E19F340BE}|DuAnThucTap\\DuAnThucTap.csproj|d:\\isc_hg\\github\\test_da_nhungo\\duan_nhom3\\duanthuctap\\service\\subjectservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ED7399D1-71FA-4E0F-A2D5-0C5E19F340BE}|DuAnThucTap\\DuAnThucTap.csproj|solutionrelative:duanthuctap\\service\\subjectservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ED7399D1-71FA-4E0F-A2D5-0C5E19F340BE}|DuAnThucTap\\DuAnThucTap.csproj|d:\\isc_hg\\github\\test_da_nhungo\\duan_nhom3\\duanthuctap\\irepository\\isubjectservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ED7399D1-71FA-4E0F-A2D5-0C5E19F340BE}|DuAnThucTap\\DuAnThucTap.csproj|solutionrelative:duanthuctap\\irepository\\isubjectservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ED7399D1-71FA-4E0F-A2D5-0C5E19F340BE}|DuAnThucTap\\DuAnThucTap.csproj|d:\\isc_hg\\github\\test_da_nhungo\\duan_nhom3\\duanthuctap\\model\\gradelevel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ED7399D1-71FA-4E0F-A2D5-0C5E19F340BE}|DuAnThucTap\\DuAnThucTap.csproj|solutionrelative:duanthuctap\\model\\gradelevel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ED7399D1-71FA-4E0F-A2D5-0C5E19F340BE}|DuAnThucTap\\DuAnThucTap.csproj|d:\\isc_hg\\github\\test_da_nhungo\\duan_nhom3\\duanthuctap\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{ED7399D1-71FA-4E0F-A2D5-0C5E19F340BE}|DuAnThucTap\\DuAnThucTap.csproj|solutionrelative:duanthuctap\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ClassInfoDto.cs",
+              "DocumentMoniker": "D:\\ISC_HG\\Github\\Test_DA_NhuNgo\\DuAn_Nhom3\\DuAnThucTap\\DTO\\ClassInfoDto.cs",
+              "RelativeDocumentMoniker": "DuAnThucTap\\DTO\\ClassInfoDto.cs",
+              "ToolTip": "D:\\ISC_HG\\Github\\Test_DA_NhuNgo\\DuAn_Nhom3\\DuAnThucTap\\DTO\\ClassInfoDto.cs",
+              "RelativeToolTip": "DuAnThucTap\\DTO\\ClassInfoDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-08T21:35:42.679Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ClassService.cs",
+              "DocumentMoniker": "D:\\ISC_HG\\Github\\Test_DA_NhuNgo\\DuAn_Nhom3\\DuAnThucTap\\Service\\ClassService.cs",
+              "RelativeDocumentMoniker": "DuAnThucTap\\Service\\ClassService.cs",
+              "ToolTip": "D:\\ISC_HG\\Github\\Test_DA_NhuNgo\\DuAn_Nhom3\\DuAnThucTap\\Service\\ClassService.cs",
+              "RelativeToolTip": "DuAnThucTap\\Service\\ClassService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFQAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-08T19:21:22.808Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "IClassService.cs",
+              "DocumentMoniker": "D:\\ISC_HG\\Github\\Test_DA_NhuNgo\\DuAn_Nhom3\\DuAnThucTap\\Irepository\\IClassService.cs",
+              "RelativeDocumentMoniker": "DuAnThucTap\\Irepository\\IClassService.cs",
+              "ToolTip": "D:\\ISC_HG\\Github\\Test_DA_NhuNgo\\DuAn_Nhom3\\DuAnThucTap\\Irepository\\IClassService.cs",
+              "RelativeToolTip": "DuAnThucTap\\Irepository\\IClassService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAA7AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-08T19:20:50.191Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Class.cs",
+              "DocumentMoniker": "D:\\ISC_HG\\Github\\Test_DA_NhuNgo\\DuAn_Nhom3\\DuAnThucTap\\Model\\Class.cs",
+              "RelativeDocumentMoniker": "DuAnThucTap\\Model\\Class.cs",
+              "ToolTip": "D:\\ISC_HG\\Github\\Test_DA_NhuNgo\\DuAn_Nhom3\\DuAnThucTap\\Model\\Class.cs",
+              "RelativeToolTip": "DuAnThucTap\\Model\\Class.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAACAAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-08T20:45:24.559Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ClassesController.cs",
+              "DocumentMoniker": "D:\\ISC_HG\\Github\\Test_DA_NhuNgo\\DuAn_Nhom3\\DuAnThucTap\\Controllers\\ClassesController.cs",
+              "RelativeDocumentMoniker": "DuAnThucTap\\Controllers\\ClassesController.cs",
+              "ToolTip": "D:\\ISC_HG\\Github\\Test_DA_NhuNgo\\DuAn_Nhom3\\DuAnThucTap\\Controllers\\ClassesController.cs",
+              "RelativeToolTip": "DuAnThucTap\\Controllers\\ClassesController.cs",
+              "ViewState": "AgIAAE8AAAAAAAAAAAAwwB8AAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-08T19:31:49.777Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ApplicationDbContext.cs",
+              "DocumentMoniker": "D:\\ISC_HG\\Github\\Test_DA_NhuNgo\\DuAn_Nhom3\\DuAnThucTap\\Data\\ApplicationDbContext.cs",
+              "RelativeDocumentMoniker": "DuAnThucTap\\Data\\ApplicationDbContext.cs",
+              "ToolTip": "D:\\ISC_HG\\Github\\Test_DA_NhuNgo\\DuAn_Nhom3\\DuAnThucTap\\Data\\ApplicationDbContext.cs",
+              "RelativeToolTip": "DuAnThucTap\\Data\\ApplicationDbContext.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAAwwBkAAABXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-08T19:10:19.64Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Schoolyear.cs",
+              "DocumentMoniker": "D:\\ISC_HG\\Github\\Test_DA_NhuNgo\\DuAn_Nhom3\\DuAnThucTap\\Model\\Schoolyear.cs",
+              "RelativeDocumentMoniker": "DuAnThucTap\\Model\\Schoolyear.cs",
+              "ToolTip": "D:\\ISC_HG\\Github\\Test_DA_NhuNgo\\DuAn_Nhom3\\DuAnThucTap\\Model\\Schoolyear.cs",
+              "RelativeToolTip": "DuAnThucTap\\Model\\Schoolyear.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-08T20:29:45.526Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "SubjectService.cs",
+              "DocumentMoniker": "D:\\ISC_HG\\Github\\Test_DA_NhuNgo\\DuAn_Nhom3\\DuAnThucTap\\Service\\SubjectService.cs",
+              "RelativeDocumentMoniker": "DuAnThucTap\\Service\\SubjectService.cs",
+              "ToolTip": "D:\\ISC_HG\\Github\\Test_DA_NhuNgo\\DuAn_Nhom3\\DuAnThucTap\\Service\\SubjectService.cs",
+              "RelativeToolTip": "DuAnThucTap\\Service\\SubjectService.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABIAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-08T21:08:23.343Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "ISubjectService.cs",
+              "DocumentMoniker": "D:\\ISC_HG\\Github\\Test_DA_NhuNgo\\DuAn_Nhom3\\DuAnThucTap\\Irepository\\ISubjectService.cs",
+              "RelativeDocumentMoniker": "DuAnThucTap\\Irepository\\ISubjectService.cs",
+              "ToolTip": "D:\\ISC_HG\\Github\\Test_DA_NhuNgo\\DuAn_Nhom3\\DuAnThucTap\\Irepository\\ISubjectService.cs",
+              "RelativeToolTip": "DuAnThucTap\\Irepository\\ISubjectService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-08T21:12:18.465Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Gradelevel.cs",
+              "DocumentMoniker": "D:\\ISC_HG\\Github\\Test_DA_NhuNgo\\DuAn_Nhom3\\DuAnThucTap\\Model\\Gradelevel.cs",
+              "RelativeDocumentMoniker": "DuAnThucTap\\Model\\Gradelevel.cs",
+              "ToolTip": "D:\\ISC_HG\\Github\\Test_DA_NhuNgo\\DuAn_Nhom3\\DuAnThucTap\\Model\\Gradelevel.cs",
+              "RelativeToolTip": "DuAnThucTap\\Model\\Gradelevel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-08T20:30:32.823Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Teacher.cs",
+              "DocumentMoniker": "D:\\ISC_HG\\Github\\Test_DA_NhuNgo\\DuAn_Nhom3\\DuAnThucTap\\Model\\Teacher.cs",
+              "RelativeDocumentMoniker": "DuAnThucTap\\Model\\Teacher.cs",
+              "ToolTip": "D:\\ISC_HG\\Github\\Test_DA_NhuNgo\\DuAn_Nhom3\\DuAnThucTap\\Model\\Teacher.cs",
+              "RelativeToolTip": "DuAnThucTap\\Model\\Teacher.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-08T20:27:51.988Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\ISC_HG\\Github\\Test_DA_NhuNgo\\DuAn_Nhom3\\DuAnThucTap\\appsettings.json",
+              "RelativeDocumentMoniker": "DuAnThucTap\\appsettings.json",
+              "ToolTip": "D:\\ISC_HG\\Github\\Test_DA_NhuNgo\\DuAn_Nhom3\\DuAnThucTap\\appsettings.json",
+              "RelativeToolTip": "DuAnThucTap\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAABoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-07-08T18:19:27.528Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

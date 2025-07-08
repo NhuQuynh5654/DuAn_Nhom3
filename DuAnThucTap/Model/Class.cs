@@ -28,6 +28,7 @@ namespace DuAnThucTap.Model
         public virtual Subject? Subject { get; set; }
         [JsonIgnore]
         public virtual Teacher? Teacher { get; set; }
-      
+        [JsonIgnore]
+        public virtual ICollection<Subject> Subjects { get; set; } = new List<Subject>();
     }
 }
