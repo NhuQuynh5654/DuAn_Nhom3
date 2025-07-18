@@ -21,7 +21,6 @@ namespace DuAnThucTap.Controllers
             _context = context;
         }
 
-        // GET: api/Classtypes
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Classtype>>> GetClasstypes()
         {
@@ -32,23 +31,25 @@ namespace DuAnThucTap.Controllers
             return await _context.Classtypes.ToListAsync();
         }
 
-        // GET: api/Classtypes/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<Classtype>> GetClasstype(int id)
+        // GET: api/Classtypes
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<Classtype>>> GetClasstypes([FromQuery] bool? isActive)
         {
-          if (_context.Classtypes == null)
-          {
-              return NotFound();
-          }
-            var classtype = await _context.Classtypes.FindAsync(id);
-
-            if (classtype == null)
+            if (_context.Classtypes == null)
             {
                 return NotFound();
             }
 
-            return classtype;
+            var query = _context.Classtypes.AsQueryable();
+
+            if (isActive != null)
+            {
+                query = query.Where(c => c.Isactive == isActive);
+            }
+
+            return await query.ToListAsync();
         }
+
 
         // PUT: api/Classtypes/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754

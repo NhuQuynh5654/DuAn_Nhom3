@@ -70,6 +70,19 @@ public class ClassService : IClassService
         if (errors.Any())
             throw new ArgumentException(string.Join(" | ", errors));
 
+        if (dto.Classtypeid.HasValue)
+        {
+            var classtype = await _context.Classtypes
+                .FirstOrDefaultAsync(c => c.Classtypeid == dto.Classtypeid);
+
+            if (classtype == null)
+                throw new ArgumentException($"Classtypeid {dto.Classtypeid} không tồn tại.");
+
+            if (!classtype.Isactive)
+                throw new ArgumentException($"Loại lớp (Classtypeid {dto.Classtypeid}) đang bị vô hiệu hoá, không thể tạo lớp.");
+        }
+
+
         if (dto.Maxstudents < 30 || dto.Maxstudents > 45)
             throw new ArgumentException("Số lượng học sinh phải nằm trong khoảng từ 30 đến 45.");
 
@@ -93,11 +106,24 @@ public class ClassService : IClassService
         _context.Classes.Add(@class);
         await _context.SaveChangesAsync();
 
-        return await GetByIdAsync(@class.Classid); // Trả về bản đầy đủ
+        return await GetByIdAsync(@class.Classid);
     }
+
 
     public async Task<Class?> UpdateAsync(int id, CreateClassDto dto)
     {
+        if (dto.Classtypeid.HasValue)
+        {
+            var classtype = await _context.Classtypes
+                .FirstOrDefaultAsync(c => c.Classtypeid == dto.Classtypeid);
+
+            if (classtype == null)
+                throw new ArgumentException($"Classtypeid {dto.Classtypeid} không tồn tại.");
+
+            if (!classtype.Isactive)
+                throw new ArgumentException($"Loại lớp (Classtypeid {dto.Classtypeid}) đang bị vô hiệu hoá, không thể cập nhật lớp.");
+        }
+
         var @class = await _context.Classes
             .Include(c => c.ClassSubjects)
             .FirstOrDefaultAsync(c => c.Classid == id);

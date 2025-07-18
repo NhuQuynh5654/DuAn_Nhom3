@@ -16,7 +16,7 @@ namespace DuAnThucTap.Services
 
         public async Task<PaginatedList<Gradetype>> GetAllAsync(string? search, int pageIndex, int pageSize)
         {
-            var query = _context.Gradetype.AsQueryable();
+            var query = _context.Gradetypes.AsQueryable();
 
             if (!string.IsNullOrWhiteSpace(search))
             {
@@ -32,7 +32,7 @@ namespace DuAnThucTap.Services
 
         public async Task<Gradetype?> GetByIdAsync(int id)
         {
-            return await _context.Gradetype.FindAsync(id);
+            return await _context.Gradetypes.FindAsync(id);
         }
 
         public async Task<object> CreateAsync(GradetypeDto dto)
@@ -45,7 +45,7 @@ namespace DuAnThucTap.Services
                 Mininstancessemester2 = dto.Mininstancessemester2!.Value
             };
 
-            _context.Gradetype.Add(entity);
+            _context.Gradetypes.Add(entity);
             await _context.SaveChangesAsync();
 
             return new
@@ -58,7 +58,7 @@ namespace DuAnThucTap.Services
 
         public async Task<object> UpdateAsync(int id, GradetypeDto dto)
         {
-            var entity = await _context.Gradetype.FindAsync(id);
+            var entity = await _context.Gradetypes.FindAsync(id);
             if (entity == null)
             {
                 return new { success = false, message = "Không tìm thấy loại điểm cần sửa." };
@@ -76,13 +76,13 @@ namespace DuAnThucTap.Services
 
         public async Task<object> DeleteAsync(int id)
         {
-            var entity = await _context.Gradetype.FindAsync(id);
+            var entity = await _context.Gradetypes.FindAsync(id);
             if (entity == null)
             {
                 return new { success = false, message = "Không tìm thấy loại điểm để xoá." };
             }
 
-            _context.Gradetype.Remove(entity);
+            _context.Gradetypes.Remove(entity);
             await _context.SaveChangesAsync();
 
             return new { success = true, message = "Xoá loại điểm thành công!" };

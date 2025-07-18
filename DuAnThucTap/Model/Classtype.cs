@@ -9,7 +9,8 @@ namespace DuAnThucTap.Model
         [Key]
         public int Classtypeid { get; set; }
         public string Classtypename { get; set; } = null!;
-        public bool? Isactive { get; set; }
+        public bool Isactive { get; set; } = true;
+
         public DateTime? Createdat { get; set; }
         public DateTime? Updatedat { get; set; }
         [JsonIgnore]

@@ -5,6 +5,15 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddSwaggerGen(c =>
+{
+    c.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo
+    {
+        Title = "DuAnThucTap API",
+        Version = "v1"
+    });
+});
+
 // Add services to the container.
 
 builder.Services.AddScoped<ISchoolinformationService, SchoolinformationService>();

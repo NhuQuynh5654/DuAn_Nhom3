@@ -6,12 +6,25 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace DuAnThucTap.Migrations
 {
-    public partial class demo73 : Migration
+    public partial class id : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-          
- 
+            migrationBuilder.CreateTable(
+                name: "Classtypes",
+                columns: table => new
+                {
+                    Classtypeid = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    Classtypename = table.Column<string>(type: "text", nullable: false),
+                    Isactive = table.Column<bool>(type: "boolean", nullable: false),
+                    Createdat = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
+                    Updatedat = table.Column<DateTime>(type: "timestamp with time zone", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Classtypes", x => x.Classtypeid);
+                });
 
             migrationBuilder.CreateTable(
                 name: "Departments",
@@ -29,19 +42,19 @@ namespace DuAnThucTap.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Gradetype",
+                name: "Gradetypes",
                 columns: table => new
                 {
                     Gradetypeid = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    Gradetypename = table.Column<string>(type: "text", nullable: false),
+                    Gradetypename = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: false),
                     Weightingfactor = table.Column<decimal>(type: "numeric", nullable: false),
                     Mininstancessemester1 = table.Column<int>(type: "integer", nullable: false),
                     Mininstancessemester2 = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Gradetype", x => x.Gradetypeid);
+                    table.PrimaryKey("PK_Gradetypes", x => x.Gradetypeid);
                 });
 
             migrationBuilder.CreateTable(
@@ -104,6 +117,32 @@ namespace DuAnThucTap.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Campuses",
+                columns: table => new
+                {
+                    Campusid = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    Schoolinfoid = table.Column<int>(type: "integer", nullable: false),
+                    Campusname = table.Column<string>(type: "text", nullable: true),
+                    Address = table.Column<string>(type: "text", nullable: true),
+                    Phonenumber = table.Column<string>(type: "text", nullable: true),
+                    Imageurl = table.Column<string>(type: "text", nullable: true),
+                    Contactpersonname = table.Column<string>(type: "text", nullable: true),
+                    Contactpersonmobile = table.Column<string>(type: "text", nullable: true),
+                    Contactpersonemail = table.Column<string>(type: "text", nullable: true),
+                    SchoolinformationSchoolinfoid = table.Column<int>(type: "integer", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Campuses", x => x.Campusid);
+                    table.ForeignKey(
+                        name: "FK_Campuses_Schoolinformations_SchoolinformationSchoolinfoid",
+                        column: x => x.SchoolinformationSchoolinfoid,
+                        principalTable: "Schoolinformations",
+                        principalColumn: "Schoolinfoid");
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Schoolyears",
                 columns: table => new
                 {
@@ -158,12 +197,12 @@ namespace DuAnThucTap.Migrations
                     Subjectid = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     Subjectname = table.Column<string>(type: "text", nullable: false),
-                    Subjectcode = table.Column<string>(type: "text", nullable: true),
-                    Defaultperiodssem1 = table.Column<int>(type: "integer", nullable: true),
-                    Defaultperiodssem2 = table.Column<int>(type: "integer", nullable: true),
-                    Departmentid = table.Column<int>(type: "integer", nullable: true),
-                    Subjecttypeid = table.Column<int>(type: "integer", nullable: true),
-                    Schoolyearid = table.Column<int>(type: "integer", nullable: true),
+                    Subjectcode = table.Column<string>(type: "text", nullable: false),
+                    Defaultperiodssem1 = table.Column<int>(type: "integer", nullable: false),
+                    Defaultperiodssem2 = table.Column<int>(type: "integer", nullable: false),
+                    Departmentid = table.Column<int>(type: "integer", nullable: false),
+                    Subjecttypeid = table.Column<int>(type: "integer", nullable: false),
+                    Schoolyearid = table.Column<int>(type: "integer", nullable: false),
                     Createdat = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
                     Updatedat = table.Column<DateTime>(type: "timestamp with time zone", nullable: true)
                 },
@@ -174,17 +213,20 @@ namespace DuAnThucTap.Migrations
                         name: "FK_Subjects_Departments_Departmentid",
                         column: x => x.Departmentid,
                         principalTable: "Departments",
-                        principalColumn: "Departmentid");
+                        principalColumn: "Departmentid",
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Subjects_Schoolyears_Schoolyearid",
                         column: x => x.Schoolyearid,
                         principalTable: "Schoolyears",
-                        principalColumn: "Schoolyearid");
+                        principalColumn: "Schoolyearid",
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Subjects_Subjecttypes_Subjecttypeid",
                         column: x => x.Subjecttypeid,
                         principalTable: "Subjecttypes",
-                        principalColumn: "Subjecttypeid");
+                        principalColumn: "Subjecttypeid",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -206,9 +248,9 @@ namespace DuAnThucTap.Migrations
                 {
                     table.PrimaryKey("PK_Grades", x => x.Gradeid);
                     table.ForeignKey(
-                        name: "FK_Grades_Gradetype_Gradetypeid",
+                        name: "FK_Grades_Gradetypes_Gradetypeid",
                         column: x => x.Gradetypeid,
-                        principalTable: "Gradetype",
+                        principalTable: "Gradetypes",
                         principalColumn: "Gradetypeid",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
@@ -388,6 +430,43 @@ namespace DuAnThucTap.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Blockleaders",
+                columns: table => new
+                {
+                    Blockleaderid = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    Gradelevelid = table.Column<int>(type: "integer", nullable: false),
+                    Schoolyearid = table.Column<int>(type: "integer", nullable: false),
+                    Teacherid = table.Column<int>(type: "integer", nullable: false),
+                    Startdate = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
+                    Enddate = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
+                    Createdat = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
+                    Updatedat = table.Column<DateTime>(type: "timestamp with time zone", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Blockleaders", x => x.Blockleaderid);
+                    table.ForeignKey(
+                        name: "FK_Blockleaders_Gradelevels_Gradelevelid",
+                        column: x => x.Gradelevelid,
+                        principalTable: "Gradelevels",
+                        principalColumn: "Gradelevelid",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Blockleaders_Schoolyears_Schoolyearid",
+                        column: x => x.Schoolyearid,
+                        principalTable: "Schoolyears",
+                        principalColumn: "Schoolyearid",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Blockleaders_Teachers_Teacherid",
+                        column: x => x.Teacherid,
+                        principalTable: "Teachers",
+                        principalColumn: "Teacherid",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Classes",
                 columns: table => new
                 {
@@ -457,6 +536,27 @@ namespace DuAnThucTap.Migrations
                         principalColumn: "Subjectid",
                         onDelete: ReferentialAction.Cascade);
                 });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Blockleaders_Gradelevelid",
+                table: "Blockleaders",
+                column: "Gradelevelid");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Blockleaders_Schoolyearid",
+                table: "Blockleaders",
+                column: "Schoolyearid",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Blockleaders_Teacherid",
+                table: "Blockleaders",
+                column: "Teacherid");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Campuses_SchoolinformationSchoolinfoid",
+                table: "Campuses",
+                column: "SchoolinformationSchoolinfoid");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Classes_Classtypeid",
@@ -597,6 +697,12 @@ namespace DuAnThucTap.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
+                name: "Blockleaders");
+
+            migrationBuilder.DropTable(
+                name: "Campuses");
+
+            migrationBuilder.DropTable(
                 name: "ClassSubjects");
 
             migrationBuilder.DropTable(
@@ -612,7 +718,7 @@ namespace DuAnThucTap.Migrations
                 name: "Classes");
 
             migrationBuilder.DropTable(
-                name: "Gradetype");
+                name: "Gradetypes");
 
             migrationBuilder.DropTable(
                 name: "Semesters");
