@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using DuAnThucTap.Data;
+﻿using Microsoft.AspNetCore.Mvc;
+using DuAnThucTap.Irepository;
 using DuAnThucTap.Model;
 
 namespace DuAnThucTap.Controllers
@@ -14,111 +8,135 @@ namespace DuAnThucTap.Controllers
     [ApiController]
     public class DepartmentleadersController : ControllerBase
     {
-        private readonly ApplicationDbContext _context;
+        private readonly IDepartmentleadersService _service;
 
-        public DepartmentleadersController(ApplicationDbContext context)
+        public DepartmentleadersController(IDepartmentleadersService service)
         {
-            _context = context;
+            _service = service;
         }
 
-        // GET: api/Departmentleaders
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Departmentleader>>> GetDepartmentleaders()
+        public async Task<IActionResult> GetAll([FromQuery] PaginationDto pagination)
         {
-          if (_context.Departmentleaders == null)
-          {
-              return NotFound();
-          }
-            return await _context.Departmentleaders.ToListAsync();
+            var data = await _service.GetAllAsync(pagination);
+            if (!data.Any())
+            {
+                return NotFound(new { message = "Không tìm thấy trưởng bộ môn nào." });
+            }
+
+            var result = data.Select(dl => new
+            {
+                DepartmentleaderID = dl.Departmentleaderid,
+                ToBoMon = dl.Department?.Departmentname,
+                TruongBoMon = dl.Teacher?.Fullname,
+                dl.Startdate,
+                dl.Enddate
+            });
+
+            return Ok(new
+            {
+                message = "Lấy danh sách trưởng bộ môn thành công",
+                data = result
+            });
         }
 
-        // GET: api/Departmentleaders/5
+
         [HttpGet("{id}")]
-        public async Task<ActionResult<Departmentleader>> GetDepartmentleader(int id)
+        public async Task<IActionResult> GetById(int id)
         {
-          if (_context.Departmentleaders == null)
-          {
-              return NotFound();
-          }
-            var departmentleader = await _context.Departmentleaders.FindAsync(id);
+            var entity = await _service.GetByIdAsync(id);
+            if (entity == null)
+                return NotFound(new { message = "Không tìm thấy trưởng bộ môn." });
 
-            if (departmentleader == null)
+            var result = new 
             {
-                return NotFound();
-            }
+                ToBoMon = entity.Department?.Departmentname,
+                TruongBoMon = entity.Teacher?.Fullname,
+                entity.Startdate,
+                entity.Enddate
+            };
 
-            return departmentleader;
+            return Ok(new
+            {
+                message = "Lấy thông tin trưởng bộ môn thành công",
+                data = result
+            });
         }
 
-        // PUT: api/Departmentleaders/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutDepartmentleader(int id, Departmentleader departmentleader)
+        [HttpPost]
+        public async Task<IActionResult> Create([FromBody] DepartmentleaderCreateDto dto)
         {
-            if (id != departmentleader.Departmentleaderid)
-            {
-                return BadRequest();
-            }
-
-            _context.Entry(departmentleader).State = EntityState.Modified;
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
 
             try
             {
-                await _context.SaveChangesAsync();
+                var created = await _service.CreateAsync(dto);
+                return CreatedAtAction(nameof(GetById), new { id = created.Departmentleaderid },
+                    new { message = "Tạo trưởng bộ môn thành công", data = created });
             }
-            catch (DbUpdateConcurrencyException)
+            catch (ArgumentException ex)
             {
-                if (!DepartmentleaderExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
+                return BadRequest(new { message = ex.Message });
             }
-
-            return NoContent();
         }
 
-        // POST: api/Departmentleaders
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPost]
-        public async Task<ActionResult<Departmentleader>> PostDepartmentleader(Departmentleader departmentleader)
+        [HttpPut("{id}")]
+        public async Task<IActionResult> Update(int id, [FromBody] DepartmentleaderCreateDto dto)
         {
-          if (_context.Departmentleaders == null)
-          {
-              return Problem("Entity set 'ApplicationDbContext.Departmentleaders'  is null.");
-          }
-            _context.Departmentleaders.Add(departmentleader);
-            await _context.SaveChangesAsync();
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
 
-            return CreatedAtAction("GetDepartmentleader", new { id = departmentleader.Departmentleaderid }, departmentleader);
+            try
+            {
+                var success = await _service.UpdateAsync(id, dto);
+                if (!success)
+                    return NotFound(new { message = "Không tìm thấy trưởng bộ môn để cập nhật." });
+
+                var updated = await _service.GetByIdAsync(id); // optional: trả về object sau cập nhật
+                return Ok(new
+                {
+                    message = "Cập nhật trưởng bộ môn thành công",
+                    data = updated
+                });
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(new { message = ex.Message });
+            }
         }
 
-        // DELETE: api/Departmentleaders/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteDepartmentleader(int id)
+        public async Task<IActionResult> Delete(int id)
         {
-            if (_context.Departmentleaders == null)
-            {
-                return NotFound();
-            }
-            var departmentleader = await _context.Departmentleaders.FindAsync(id);
-            if (departmentleader == null)
-            {
-                return NotFound();
-            }
+            var success = await _service.DeleteAsync(id);
+            if (!success)
+                return NotFound(new { message = "Không tìm thấy trưởng bộ môn để xoá." });
 
-            _context.Departmentleaders.Remove(departmentleader);
-            await _context.SaveChangesAsync();
-
-            return NoContent();
+            return Ok(new { message = "Xoá trưởng bộ môn thành công" });
         }
 
-        private bool DepartmentleaderExists(int id)
+        [HttpGet("search")]
+        public async Task<IActionResult> SearchByDepartmentName([FromQuery] string keyword, [FromQuery] PaginationDto pagination)
         {
-            return (_context.Departmentleaders?.Any(e => e.Departmentleaderid == id)).GetValueOrDefault();
+            var results = await _service.SearchByDepartmentNameAsync(keyword, pagination);
+            if (!results.Any())
+                return NotFound(new { message = "Không tìm thấy tổ bộ môn phù hợp." });
+
+            var data = results.Select(dl => new
+            {
+                ToBoMon = dl.Department?.Departmentname,
+                TruongBoMon = dl.Teacher?.Fullname,
+                dl.Startdate,
+                dl.Enddate
+            });
+
+            return Ok(new
+            {
+                message = "Tìm kiếm trưởng bộ môn theo tên tổ bộ môn thành công",
+                data = data
+            });
         }
+
     }
 }

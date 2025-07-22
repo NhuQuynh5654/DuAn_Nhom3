@@ -1,15 +1,11 @@
 ﻿using DuAnThucTap.Model;
-using DuAnThucTap.DTO;
 
-namespace DuAnThucTap.Irepository
+public interface IClassService
 {
-    public interface IClassService
-    {
-        Task<IEnumerable<ClassInfoDto>> GetAllClass();
-        Task<IEnumerable<ClassInfoDto>> GetInfoClass(int id);
-        Task<ClassInfoDto?> GetByIdAsync(int id);
-        Task<Class> CreateAsync(Class classEntity);
-        Task<bool> UpdateAsync(int id, Class classEntity);
-        Task<bool> DeleteAsync(int id);
-    }
+    Task<PaginatedList<Class>> GetAllAsync(string? search, int pageIndex, int pageSize);
+    Task<Class?> GetByIdAsync(int id);
+    Task<Class> CreateAsync(CreateClassDto dto);
+    Task<Class?> UpdateAsync(int id, CreateClassDto dto); // ✅ KHÔNG có async ở đây!
+    Task<bool> DeleteAsync(int id);
 }
+

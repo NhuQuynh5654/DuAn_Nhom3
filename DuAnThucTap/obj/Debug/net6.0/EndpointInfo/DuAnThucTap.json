@@ -10,35 +10,36 @@
         "tags": [
           "Classes"
         ],
+        "parameters": [
+          {
+            "name": "search",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 1
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 5
+            }
+          }
+        ],
         "responses": {
           "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/ClassInfoDto"
-                  }
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/ClassInfoDto"
-                  }
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/ClassInfoDto"
-                  }
-                }
-              }
-            }
+            "description": "Success"
           }
         }
       },
@@ -50,79 +51,24 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/Class"
+                "$ref": "#/components/schemas/CreateClassDto"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/Class"
+                "$ref": "#/components/schemas/CreateClassDto"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/Class"
+                "$ref": "#/components/schemas/CreateClassDto"
               }
             }
           }
         },
         "responses": {
           "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/Class"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Class"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Class"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/Classes/info": {
-      "get": {
-        "tags": [
-          "Classes"
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/ClassInfoDto"
-                  }
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/ClassInfoDto"
-                  }
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/ClassInfoDto"
-                  }
-                }
-              }
-            }
+            "description": "Success"
           }
         }
       }
@@ -145,24 +91,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ClassInfoDto"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ClassInfoDto"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ClassInfoDto"
-                }
-              }
-            }
+            "description": "Success"
           }
         }
       },
@@ -185,17 +114,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/Class"
+                "$ref": "#/components/schemas/CreateClassDto"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/Class"
+                "$ref": "#/components/schemas/CreateClassDto"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/Class"
+                "$ref": "#/components/schemas/CreateClassDto"
               }
             }
           }
@@ -418,35 +347,27 @@
         "tags": [
           "Departmentleaders"
         ],
+        "parameters": [
+          {
+            "name": "PageNumber",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "PageSize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
         "responses": {
           "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Departmentleader"
-                  }
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Departmentleader"
-                  }
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Departmentleader"
-                  }
-                }
-              }
-            }
+            "description": "Success"
           }
         }
       },
@@ -458,41 +379,24 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/Departmentleader"
+                "$ref": "#/components/schemas/DepartmentleaderCreateDto"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/Departmentleader"
+                "$ref": "#/components/schemas/DepartmentleaderCreateDto"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/Departmentleader"
+                "$ref": "#/components/schemas/DepartmentleaderCreateDto"
               }
             }
           }
         },
         "responses": {
           "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/Departmentleader"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Departmentleader"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Departmentleader"
-                }
-              }
-            }
+            "description": "Success"
           }
         }
       }
@@ -515,24 +419,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/Departmentleader"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Departmentleader"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Departmentleader"
-                }
-              }
-            }
+            "description": "Success"
           }
         }
       },
@@ -555,17 +442,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/Departmentleader"
+                "$ref": "#/components/schemas/DepartmentleaderCreateDto"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/Departmentleader"
+                "$ref": "#/components/schemas/DepartmentleaderCreateDto"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/Departmentleader"
+                "$ref": "#/components/schemas/DepartmentleaderCreateDto"
               }
             }
           }
@@ -585,6 +472,43 @@
             "name": "id",
             "in": "path",
             "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Departmentleaders/search": {
+      "get": {
+        "tags": [
+          "Departmentleaders"
+        ],
+        "parameters": [
+          {
+            "name": "keyword",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "PageNumber",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "PageSize",
+            "in": "query",
             "schema": {
               "type": "integer",
               "format": "int32"
@@ -973,35 +897,36 @@
         "tags": [
           "Gradetypes"
         ],
+        "parameters": [
+          {
+            "name": "search",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 1
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 5
+            }
+          }
+        ],
         "responses": {
           "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Gradetype"
-                  }
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Gradetype"
-                  }
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Gradetype"
-                  }
-                }
-              }
-            }
+            "description": "Success"
           }
         }
       },
@@ -1013,41 +938,24 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/Gradetype"
+                "$ref": "#/components/schemas/GradetypeDto"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/Gradetype"
+                "$ref": "#/components/schemas/GradetypeDto"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/Gradetype"
+                "$ref": "#/components/schemas/GradetypeDto"
               }
             }
           }
         },
         "responses": {
           "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/Gradetype"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Gradetype"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Gradetype"
-                }
-              }
-            }
+            "description": "Success"
           }
         }
       }
@@ -1070,24 +978,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/Gradetype"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Gradetype"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Gradetype"
-                }
-              }
-            }
+            "description": "Success"
           }
         }
       },
@@ -1110,17 +1001,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/Gradetype"
+                "$ref": "#/components/schemas/GradetypeDto"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/Gradetype"
+                "$ref": "#/components/schemas/GradetypeDto"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/Gradetype"
+                "$ref": "#/components/schemas/GradetypeDto"
               }
             }
           }
@@ -1343,35 +1234,36 @@
         "tags": [
           "Schoolyears"
         ],
+        "parameters": [
+          {
+            "name": "search",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 1
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 5
+            }
+          }
+        ],
         "responses": {
           "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Schoolyear"
-                  }
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Schoolyear"
-                  }
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Schoolyear"
-                  }
-                }
-              }
-            }
+            "description": "Success"
           }
         }
       },
@@ -1423,44 +1315,6 @@
       }
     },
     "/api/Schoolyears/{id}": {
-      "get": {
-        "tags": [
-          "Schoolyears"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/Schoolyear"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Schoolyear"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Schoolyear"
-                }
-              }
-            }
-          }
-        }
-      },
       "put": {
         "tags": [
           "Schoolyears"
@@ -1713,35 +1567,36 @@
         "tags": [
           "Subjects"
         ],
+        "parameters": [
+          {
+            "name": "search",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 1
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 5
+            }
+          }
+        ],
         "responses": {
           "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Subject"
-                  }
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Subject"
-                  }
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Subject"
-                  }
-                }
-              }
-            }
+            "description": "Success"
           }
         }
       },
@@ -1770,24 +1625,7 @@
         },
         "responses": {
           "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/Subject"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Subject"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Subject"
-                }
-              }
-            }
+            "description": "Success"
           }
         }
       }
@@ -1810,24 +1648,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/Subject"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Subject"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Subject"
-                }
-              }
-            }
+            "description": "Success"
           }
         }
       },
@@ -2078,6 +1899,185 @@
         }
       }
     },
+    "/api/TeacherConcurrentSubject": {
+      "get": {
+        "tags": [
+          "TeacherConcurrentSubject"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "TeacherConcurrentSubject"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TeacherConcurrentSubjectDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TeacherConcurrentSubjectDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/TeacherConcurrentSubjectDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/TeacherConcurrentSubject/{teacherId}/{subjectId}/{schoolYearId}": {
+      "get": {
+        "tags": [
+          "TeacherConcurrentSubject"
+        ],
+        "parameters": [
+          {
+            "name": "teacherId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "subjectId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "schoolYearId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "TeacherConcurrentSubject"
+        ],
+        "parameters": [
+          {
+            "name": "teacherId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "subjectId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "schoolYearId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TeacherConcurrentSubjectDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TeacherConcurrentSubjectDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/TeacherConcurrentSubjectDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "TeacherConcurrentSubject"
+        ],
+        "parameters": [
+          {
+            "name": "teacherId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "subjectId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "schoolYearId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
     "/api/Teachers": {
       "get": {
         "tags": [
@@ -2305,94 +2305,6 @@
   },
   "components": {
     "schemas": {
-      "Class": {
-        "type": "object",
-        "properties": {
-          "classid": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "classname": {
-            "type": "string",
-            "nullable": true
-          },
-          "maxstudents": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "description": {
-            "type": "string",
-            "nullable": true
-          },
-          "schoolyearid": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "gradelevelid": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "classtypeid": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "teacherid": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "subjectid": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "createdat": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "updatedat": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "ClassInfoDto": {
-        "type": "object",
-        "properties": {
-          "classid": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "classname": {
-            "type": "string",
-            "nullable": true
-          },
-          "subjectCount": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "teacherFullname": {
-            "type": "string",
-            "nullable": true
-          },
-          "classTypeName": {
-            "type": "string",
-            "nullable": true
-          },
-          "schoolYear": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
       "Classtype": {
         "type": "object",
         "properties": {
@@ -2416,6 +2328,60 @@
           "updatedat": {
             "type": "string",
             "format": "date-time",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreateClassDto": {
+        "required": [
+          "classname",
+          "description",
+          "maxstudents"
+        ],
+        "type": "object",
+        "properties": {
+          "classname": {
+            "maxLength": 100,
+            "minLength": 0,
+            "type": "string"
+          },
+          "maxstudents": {
+            "maximum": 45,
+            "minimum": 30,
+            "type": "integer",
+            "format": "int32"
+          },
+          "description": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "schoolyearid": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "gradelevelid": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "classtypeid": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "teacherid": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "subjectIds": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            },
             "nullable": true
           }
         },
@@ -2445,13 +2411,14 @@
         },
         "additionalProperties": false
       },
-      "Departmentleader": {
+      "DepartmentleaderCreateDto": {
+        "required": [
+          "departmentid",
+          "schoolyearid",
+          "teacherid"
+        ],
         "type": "object",
         "properties": {
-          "departmentleaderid": {
-            "type": "integer",
-            "format": "int32"
-          },
           "departmentid": {
             "type": "integer",
             "format": "int32"
@@ -2510,26 +2477,34 @@
         },
         "additionalProperties": false
       },
-      "Gradetype": {
+      "GradetypeDto": {
+        "required": [
+          "gradetypename",
+          "mininstancessemester1",
+          "mininstancessemester2",
+          "weightingfactor"
+        ],
         "type": "object",
         "properties": {
-          "gradetypeid": {
-            "type": "integer",
-            "format": "int32"
-          },
           "gradetypename": {
-            "type": "string",
-            "nullable": true
+            "minLength": 1,
+            "type": "string"
           },
           "weightingfactor": {
+            "maximum": 10,
+            "minimum": 1,
             "type": "number",
             "format": "double"
           },
           "mininstancessemester1": {
+            "maximum": 10,
+            "minimum": 1,
             "type": "integer",
             "format": "int32"
           },
           "mininstancessemester2": {
+            "maximum": 10,
+            "minimum": 1,
             "type": "integer",
             "format": "int32"
           }
@@ -2612,6 +2587,12 @@
         "additionalProperties": false
       },
       "Schoolyear": {
+        "required": [
+          "endyear",
+          "schoolinfoid",
+          "schoolyearname",
+          "startyear"
+        ],
         "type": "object",
         "properties": {
           "schoolyearid": {
@@ -2623,8 +2604,8 @@
             "format": "int32"
           },
           "schoolyearname": {
-            "type": "string",
-            "nullable": true
+            "minLength": 1,
+            "type": "string"
           },
           "startyear": {
             "type": "integer",
@@ -2687,6 +2668,15 @@
         "additionalProperties": false
       },
       "Subject": {
+        "required": [
+          "defaultperiodssem1",
+          "defaultperiodssem2",
+          "departmentid",
+          "schoolyearid",
+          "subjectcode",
+          "subjectname",
+          "subjecttypeid"
+        ],
         "type": "object",
         "properties": {
           "subjectid": {
@@ -2694,37 +2684,32 @@
             "format": "int32"
           },
           "subjectname": {
-            "type": "string",
-            "nullable": true
+            "minLength": 1,
+            "type": "string"
           },
           "subjectcode": {
-            "type": "string",
-            "nullable": true
+            "minLength": 1,
+            "type": "string"
           },
           "defaultperiodssem1": {
             "type": "integer",
-            "format": "int32",
-            "nullable": true
+            "format": "int32"
           },
           "defaultperiodssem2": {
             "type": "integer",
-            "format": "int32",
-            "nullable": true
+            "format": "int32"
           },
           "departmentid": {
             "type": "integer",
-            "format": "int32",
-            "nullable": true
+            "format": "int32"
           },
           "subjecttypeid": {
             "type": "integer",
-            "format": "int32",
-            "nullable": true
+            "format": "int32"
           },
           "schoolyearid": {
             "type": "integer",
-            "format": "int32",
-            "nullable": true
+            "format": "int32"
           },
           "createdat": {
             "type": "string",
@@ -2878,6 +2863,24 @@
             "type": "string",
             "format": "date-time",
             "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "TeacherConcurrentSubjectDto": {
+        "type": "object",
+        "properties": {
+          "teacherID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "subjectID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "schoolYearID": {
+            "type": "integer",
+            "format": "int32"
           }
         },
         "additionalProperties": false

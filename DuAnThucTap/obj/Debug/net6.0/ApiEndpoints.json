@@ -1,53 +1,49 @@
 [
   {
-    "ContainingType": "DuAnThucTap.Controllers.ClassesController",
-    "Method": "GetAllClasses",
+    "ContainingType": "ClassesController",
+    "Method": "GetClasses",
     "RelativePath": "api/Classes",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": [
+    "Parameters": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[DuAnThucTap.DTO.ClassInfoDto, DuAnThucTap, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
+        "Name": "search",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "page",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "pageSize",
+        "Type": "System.Int32",
+        "IsRequired": false
       }
-    ]
+    ],
+    "ReturnTypes": []
   },
   {
-    "ContainingType": "DuAnThucTap.Controllers.ClassesController",
-    "Method": "CreateClass",
+    "ContainingType": "ClassesController",
+    "Method": "PostClass",
     "RelativePath": "api/Classes",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "classEntity",
-        "Type": "DuAnThucTap.Model.Class",
+        "Name": "dto",
+        "Type": "DuAnThucTap.Model.CreateClassDto",
         "IsRequired": true
       }
     ],
-    "ReturnTypes": [
-      {
-        "Type": "DuAnThucTap.Model.Class",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
+    "ReturnTypes": []
   },
   {
-    "ContainingType": "DuAnThucTap.Controllers.ClassesController",
-    "Method": "GetClassById",
+    "ContainingType": "ClassesController",
+    "Method": "GetClass",
     "RelativePath": "api/Classes/{id}",
     "HttpMethod": "GET",
     "IsController": true,
@@ -59,21 +55,11 @@
         "IsRequired": true
       }
     ],
-    "ReturnTypes": [
-      {
-        "Type": "DuAnThucTap.DTO.ClassInfoDto",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
+    "ReturnTypes": []
   },
   {
-    "ContainingType": "DuAnThucTap.Controllers.ClassesController",
-    "Method": "UpdateClass",
+    "ContainingType": "ClassesController",
+    "Method": "PutClass",
     "RelativePath": "api/Classes/{id}",
     "HttpMethod": "PUT",
     "IsController": true,
@@ -85,15 +71,15 @@
         "IsRequired": true
       },
       {
-        "Name": "classEntity",
-        "Type": "DuAnThucTap.Model.Class",
+        "Name": "dto",
+        "Type": "DuAnThucTap.Model.CreateClassDto",
         "IsRequired": true
       }
     ],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "DuAnThucTap.Controllers.ClassesController",
+    "ContainingType": "ClassesController",
     "Method": "DeleteClass",
     "RelativePath": "api/Classes/{id}",
     "HttpMethod": "DELETE",
@@ -107,26 +93,6 @@
       }
     ],
     "ReturnTypes": []
-  },
-  {
-    "ContainingType": "DuAnThucTap.Controllers.ClassesController",
-    "Method": "GetClassInfo",
-    "RelativePath": "api/Classes/info",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": [
-      {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[DuAnThucTap.DTO.ClassInfoDto, DuAnThucTap, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
   },
   {
     "ContainingType": "DuAnThucTap.Controllers.ClasstypesController",
@@ -239,53 +205,44 @@
   },
   {
     "ContainingType": "DuAnThucTap.Controllers.DepartmentleadersController",
-    "Method": "GetDepartmentleaders",
+    "Method": "GetAll",
     "RelativePath": "api/Departmentleaders",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": [
+    "Parameters": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[DuAnThucTap.Model.Departmentleader, DuAnThucTap, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
+        "Name": "PageNumber",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "PageSize",
+        "Type": "System.Int32",
+        "IsRequired": false
       }
-    ]
+    ],
+    "ReturnTypes": []
   },
   {
     "ContainingType": "DuAnThucTap.Controllers.DepartmentleadersController",
-    "Method": "PostDepartmentleader",
+    "Method": "Create",
     "RelativePath": "api/Departmentleaders",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "departmentleader",
-        "Type": "DuAnThucTap.Model.Departmentleader",
+        "Name": "dto",
+        "Type": "DuAnThucTap.Model.DepartmentleaderCreateDto",
         "IsRequired": true
       }
     ],
-    "ReturnTypes": [
-      {
-        "Type": "DuAnThucTap.Model.Departmentleader",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
+    "ReturnTypes": []
   },
   {
     "ContainingType": "DuAnThucTap.Controllers.DepartmentleadersController",
-    "Method": "GetDepartmentleader",
+    "Method": "GetById",
     "RelativePath": "api/Departmentleaders/{id}",
     "HttpMethod": "GET",
     "IsController": true,
@@ -297,21 +254,11 @@
         "IsRequired": true
       }
     ],
-    "ReturnTypes": [
-      {
-        "Type": "DuAnThucTap.Model.Departmentleader",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
+    "ReturnTypes": []
   },
   {
     "ContainingType": "DuAnThucTap.Controllers.DepartmentleadersController",
-    "Method": "PutDepartmentleader",
+    "Method": "Update",
     "RelativePath": "api/Departmentleaders/{id}",
     "HttpMethod": "PUT",
     "IsController": true,
@@ -323,8 +270,8 @@
         "IsRequired": true
       },
       {
-        "Name": "departmentleader",
-        "Type": "DuAnThucTap.Model.Departmentleader",
+        "Name": "dto",
+        "Type": "DuAnThucTap.Model.DepartmentleaderCreateDto",
         "IsRequired": true
       }
     ],
@@ -332,7 +279,7 @@
   },
   {
     "ContainingType": "DuAnThucTap.Controllers.DepartmentleadersController",
-    "Method": "DeleteDepartmentleader",
+    "Method": "Delete",
     "RelativePath": "api/Departmentleaders/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
@@ -342,6 +289,32 @@
         "Name": "id",
         "Type": "System.Int32",
         "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DuAnThucTap.Controllers.DepartmentleadersController",
+    "Method": "SearchByDepartmentName",
+    "RelativePath": "api/Departmentleaders/search",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "keyword",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "PageNumber",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "PageSize",
+        "Type": "System.Int32",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
@@ -566,53 +539,49 @@
   },
   {
     "ContainingType": "DuAnThucTap.Controllers.GradetypesController",
-    "Method": "GetGradetype",
+    "Method": "GetAll",
     "RelativePath": "api/Gradetypes",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": [
+    "Parameters": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[DuAnThucTap.Model.Gradetype, DuAnThucTap, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
+        "Name": "search",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "page",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "pageSize",
+        "Type": "System.Int32",
+        "IsRequired": false
       }
-    ]
+    ],
+    "ReturnTypes": []
   },
   {
     "ContainingType": "DuAnThucTap.Controllers.GradetypesController",
-    "Method": "PostGradetype",
+    "Method": "Post",
     "RelativePath": "api/Gradetypes",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "gradetype",
-        "Type": "DuAnThucTap.Model.Gradetype",
+        "Name": "dto",
+        "Type": "DuAnThucTap.DTOs.GradetypeDto",
         "IsRequired": true
       }
     ],
-    "ReturnTypes": [
-      {
-        "Type": "DuAnThucTap.Model.Gradetype",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
+    "ReturnTypes": []
   },
   {
     "ContainingType": "DuAnThucTap.Controllers.GradetypesController",
-    "Method": "GetGradetype",
+    "Method": "Get",
     "RelativePath": "api/Gradetypes/{id}",
     "HttpMethod": "GET",
     "IsController": true,
@@ -624,21 +593,11 @@
         "IsRequired": true
       }
     ],
-    "ReturnTypes": [
-      {
-        "Type": "DuAnThucTap.Model.Gradetype",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
+    "ReturnTypes": []
   },
   {
     "ContainingType": "DuAnThucTap.Controllers.GradetypesController",
-    "Method": "PutGradetype",
+    "Method": "Put",
     "RelativePath": "api/Gradetypes/{id}",
     "HttpMethod": "PUT",
     "IsController": true,
@@ -650,8 +609,8 @@
         "IsRequired": true
       },
       {
-        "Name": "gradetype",
-        "Type": "DuAnThucTap.Model.Gradetype",
+        "Name": "dto",
+        "Type": "DuAnThucTap.DTOs.GradetypeDto",
         "IsRequired": true
       }
     ],
@@ -659,7 +618,7 @@
   },
   {
     "ContainingType": "DuAnThucTap.Controllers.GradetypesController",
-    "Method": "DeleteGradetype",
+    "Method": "Delete",
     "RelativePath": "api/Gradetypes/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
@@ -789,18 +748,24 @@
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": [
+    "Parameters": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[DuAnThucTap.Model.Schoolyear, DuAnThucTap, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
+        "Name": "search",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "page",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "pageSize",
+        "Type": "System.Int32",
+        "IsRequired": false
       }
-    ]
+    ],
+    "ReturnTypes": []
   },
   {
     "ContainingType": "DuAnThucTap.Controllers.SchoolyearsController",
@@ -813,32 +778,6 @@
       {
         "Name": "schoolyear",
         "Type": "DuAnThucTap.Model.Schoolyear",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "DuAnThucTap.Model.Schoolyear",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "DuAnThucTap.Controllers.SchoolyearsController",
-    "Method": "GetSchoolyear",
-    "RelativePath": "api/Schoolyears/{id}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
         "IsRequired": true
       }
     ],
@@ -1007,18 +946,24 @@
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": [
+    "Parameters": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[DuAnThucTap.Model.Subject, DuAnThucTap, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
+        "Name": "search",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "page",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "pageSize",
+        "Type": "System.Int32",
+        "IsRequired": false
       }
-    ]
+    ],
+    "ReturnTypes": []
   },
   {
     "ContainingType": "DuAnThucTap.Controllers.SubjectsController",
@@ -1034,17 +979,7 @@
         "IsRequired": true
       }
     ],
-    "ReturnTypes": [
-      {
-        "Type": "DuAnThucTap.Model.Subject",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
+    "ReturnTypes": []
   },
   {
     "ContainingType": "DuAnThucTap.Controllers.SubjectsController",
@@ -1060,17 +995,7 @@
         "IsRequired": true
       }
     ],
-    "ReturnTypes": [
-      {
-        "Type": "DuAnThucTap.Model.Subject",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
+    "ReturnTypes": []
   },
   {
     "ContainingType": "DuAnThucTap.Controllers.SubjectsController",
@@ -1212,6 +1137,115 @@
     "Parameters": [
       {
         "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DuAnThucTap.Controllers.TeacherConcurrentSubjectController",
+    "Method": "GetAll",
+    "RelativePath": "api/TeacherConcurrentSubject",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DuAnThucTap.Controllers.TeacherConcurrentSubjectController",
+    "Method": "Create",
+    "RelativePath": "api/TeacherConcurrentSubject",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "TeacherConcurrentSubjectDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DuAnThucTap.Controllers.TeacherConcurrentSubjectController",
+    "Method": "GetById",
+    "RelativePath": "api/TeacherConcurrentSubject/{teacherId}/{subjectId}/{schoolYearId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "teacherId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "subjectId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "schoolYearId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DuAnThucTap.Controllers.TeacherConcurrentSubjectController",
+    "Method": "Update",
+    "RelativePath": "api/TeacherConcurrentSubject/{teacherId}/{subjectId}/{schoolYearId}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "teacherId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "subjectId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "schoolYearId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "TeacherConcurrentSubjectDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DuAnThucTap.Controllers.TeacherConcurrentSubjectController",
+    "Method": "Delete",
+    "RelativePath": "api/TeacherConcurrentSubject/{teacherId}/{subjectId}/{schoolYearId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "teacherId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "subjectId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "schoolYearId",
         "Type": "System.Int32",
         "IsRequired": true
       }

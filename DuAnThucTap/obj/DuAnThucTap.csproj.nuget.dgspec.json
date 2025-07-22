@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\ISC_HG\\Github\\Test_DA_NhuNgo\\DuAn_Nhom3\\DuAnThucTap\\DuAnThucTap.csproj": {}
+    "D:\\ISC_HG\\Github\\NhuNgo\\DuAn_Nhom3\\DuAnThucTap\\DuAnThucTap.csproj": {}
   },
   "projects": {
-    "D:\\ISC_HG\\Github\\Test_DA_NhuNgo\\DuAn_Nhom3\\DuAnThucTap\\DuAnThucTap.csproj": {
+    "D:\\ISC_HG\\Github\\NhuNgo\\DuAn_Nhom3\\DuAnThucTap\\DuAnThucTap.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\ISC_HG\\Github\\Test_DA_NhuNgo\\DuAn_Nhom3\\DuAnThucTap\\DuAnThucTap.csproj",
+        "projectUniqueName": "D:\\ISC_HG\\Github\\NhuNgo\\DuAn_Nhom3\\DuAnThucTap\\DuAnThucTap.csproj",
         "projectName": "DuAnThucTap",
-        "projectPath": "D:\\ISC_HG\\Github\\Test_DA_NhuNgo\\DuAn_Nhom3\\DuAnThucTap\\DuAnThucTap.csproj",
+        "projectPath": "D:\\ISC_HG\\Github\\NhuNgo\\DuAn_Nhom3\\DuAnThucTap\\DuAnThucTap.csproj",
         "packagesPath": "C:\\Users\\95tin\\.nuget\\packages\\",
-        "outputPath": "D:\\ISC_HG\\Github\\Test_DA_NhuNgo\\DuAn_Nhom3\\DuAnThucTap\\obj\\",
+        "outputPath": "D:\\ISC_HG\\Github\\NhuNgo\\DuAn_Nhom3\\DuAnThucTap\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

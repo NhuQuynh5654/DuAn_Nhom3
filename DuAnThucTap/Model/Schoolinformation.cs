@@ -1,9 +1,11 @@
-﻿using System.Text.Json.Serialization;
+﻿using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace DuAnThucTap.Model
 {
     public class Schoolinformation
     {
+        [Key]
         public int Schoolinfoid { get; set; }
         public string Schoolname { get; set; } = null!;
         public string? Standardcode { get; set; }
@@ -25,5 +27,7 @@ namespace DuAnThucTap.Model
         public virtual ICollection<Grade>? Grades { get; set; }
         [JsonIgnore]
         public virtual ICollection<Schoolyear>? Schoolyears { get; set; }
+        [JsonIgnore]
+        public virtual ICollection<Campus>? Campuses { get; set; }
     }
 }

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "YkZoE8LKLvE=",
+  "dgSpecHash": "HSwFkCxVLwM=",
   "success": true,
-  "projectFilePath": "D:\\ISC_HG\\Github\\Test_DA_NhuNgo\\DuAn_Nhom3\\DuAnThucTap\\DuAnThucTap.csproj",
+  "projectFilePath": "D:\\ISC_HG\\Github\\NhuNgo\\DuAn_Nhom3\\DuAnThucTap\\DuAnThucTap.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\95tin\\.nuget\\packages\\humanizer\\2.14.1\\humanizer.2.14.1.nupkg.sha512",
     "C:\\Users\\95tin\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",

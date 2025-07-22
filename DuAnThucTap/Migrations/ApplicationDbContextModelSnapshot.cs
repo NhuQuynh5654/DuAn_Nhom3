@@ -22,6 +22,91 @@ namespace DuAnThucTap.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
+            modelBuilder.Entity("DuAnThucTap.Model.Blockleader", b =>
+                {
+                    b.Property<int>("Blockleaderid")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Blockleaderid"));
+
+                    b.Property<DateTime?>("Createdat")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<DateTime?>("Enddate")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<int>("Gradelevelid")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("Schoolyearid")
+                        .HasColumnType("integer");
+
+                    b.Property<int?>("Schoolyearid1")
+                        .HasColumnType("integer");
+
+                    b.Property<DateTime?>("Startdate")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<int>("Teacherid")
+                        .HasColumnType("integer");
+
+                    b.Property<DateTime?>("Updatedat")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.HasKey("Blockleaderid");
+
+                    b.HasIndex("Gradelevelid");
+
+                    b.HasIndex("Schoolyearid");
+
+                    b.HasIndex("Schoolyearid1")
+                        .IsUnique();
+
+                    b.HasIndex("Teacherid");
+
+                    b.ToTable("Blockleaders");
+                });
+
+            modelBuilder.Entity("DuAnThucTap.Model.Campus", b =>
+                {
+                    b.Property<int>("Campusid")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Campusid"));
+
+                    b.Property<string>("Address")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Campusname")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Contactpersonemail")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Contactpersonmobile")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Contactpersonname")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Imageurl")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Phonenumber")
+                        .HasColumnType("text");
+
+                    b.Property<int>("Schoolinfoid")
+                        .HasColumnType("integer");
+
+                    b.HasKey("Campusid");
+
+                    b.HasIndex("Schoolinfoid");
+
+                    b.ToTable("Campuses");
+                });
+
             modelBuilder.Entity("DuAnThucTap.Model.Class", b =>
                 {
                     b.Property<int>("Classid")
@@ -32,7 +117,8 @@ namespace DuAnThucTap.Migrations
 
                     b.Property<string>("Classname")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasMaxLength(100)
+                        .HasColumnType("character varying(100)");
 
                     b.Property<int?>("Classtypeid")
                         .HasColumnType("integer");
@@ -41,12 +127,14 @@ namespace DuAnThucTap.Migrations
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("Description")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<int?>("Gradelevelid")
                         .HasColumnType("integer");
 
                     b.Property<int?>("Maxstudents")
+                        .IsRequired()
                         .HasColumnType("integer");
 
                     b.Property<int?>("Schoolyearid")
@@ -74,6 +162,21 @@ namespace DuAnThucTap.Migrations
                     b.HasIndex("Teacherid");
 
                     b.ToTable("Classes");
+                });
+
+            modelBuilder.Entity("DuAnThucTap.Model.ClassSubject", b =>
+                {
+                    b.Property<int>("Classid")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("Subjectid")
+                        .HasColumnType("integer");
+
+                    b.HasKey("Classid", "Subjectid");
+
+                    b.HasIndex("Subjectid");
+
+                    b.ToTable("ClassSubjects");
                 });
 
             modelBuilder.Entity("DuAnThucTap.Model.Classtype", b =>
@@ -245,7 +348,8 @@ namespace DuAnThucTap.Migrations
 
                     b.Property<string>("Gradetypename")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasMaxLength(100)
+                        .HasColumnType("character varying(100)");
 
                     b.Property<int>("Mininstancessemester1")
                         .HasColumnType("integer");
@@ -258,7 +362,7 @@ namespace DuAnThucTap.Migrations
 
                     b.HasKey("Gradetypeid");
 
-                    b.ToTable("Gradetype");
+                    b.ToTable("Gradetypes");
                 });
 
             modelBuilder.Entity("DuAnThucTap.Model.Schoolinformation", b =>
@@ -340,9 +444,6 @@ namespace DuAnThucTap.Migrations
                     b.Property<int>("Schoolinfoid")
                         .HasColumnType("integer");
 
-                    b.Property<int?>("SchoolinformationSchoolinfoid")
-                        .HasColumnType("integer");
-
                     b.Property<string>("Schoolyearname")
                         .IsRequired()
                         .HasColumnType("text");
@@ -355,7 +456,7 @@ namespace DuAnThucTap.Migrations
 
                     b.HasKey("Schoolyearid");
 
-                    b.HasIndex("SchoolinformationSchoolinfoid");
+                    b.HasIndex("Schoolinfoid");
 
                     b.ToTable("Schoolyears");
                 });
@@ -406,18 +507,23 @@ namespace DuAnThucTap.Migrations
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<int?>("Defaultperiodssem1")
+                        .IsRequired()
                         .HasColumnType("integer");
 
                     b.Property<int?>("Defaultperiodssem2")
+                        .IsRequired()
                         .HasColumnType("integer");
 
                     b.Property<int?>("Departmentid")
+                        .IsRequired()
                         .HasColumnType("integer");
 
                     b.Property<int?>("Schoolyearid")
+                        .IsRequired()
                         .HasColumnType("integer");
 
                     b.Property<string>("Subjectcode")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Subjectname")
@@ -425,6 +531,7 @@ namespace DuAnThucTap.Migrations
                         .HasColumnType("text");
 
                     b.Property<int?>("Subjecttypeid")
+                        .IsRequired()
                         .HasColumnType("integer");
 
                     b.Property<DateTime?>("Updatedat")
@@ -580,6 +687,9 @@ namespace DuAnThucTap.Migrations
                     b.Property<int>("Subjectid")
                         .HasColumnType("integer");
 
+                    b.Property<int?>("Subjectid1")
+                        .HasColumnType("integer");
+
                     b.Property<int>("Teacherid")
                         .HasColumnType("integer");
 
@@ -599,6 +709,8 @@ namespace DuAnThucTap.Migrations
                     b.HasIndex("Schoolyearid");
 
                     b.HasIndex("Subjectid");
+
+                    b.HasIndex("Subjectid1");
 
                     b.HasIndex("Teacherid");
 
@@ -630,6 +742,68 @@ namespace DuAnThucTap.Migrations
                     b.ToTable("Topiclists");
                 });
 
+            modelBuilder.Entity("TeacherConcurrentSubject", b =>
+                {
+                    b.Property<int>("TeacherID")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("SubjectID")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("SchoolYearID")
+                        .HasColumnType("integer");
+
+                    b.HasKey("TeacherID", "SubjectID", "SchoolYearID");
+
+                    b.HasIndex("SchoolYearID");
+
+                    b.HasIndex("SubjectID");
+
+                    b.ToTable("TeacherConcurrentSubjects");
+                });
+
+            modelBuilder.Entity("DuAnThucTap.Model.Blockleader", b =>
+                {
+                    b.HasOne("DuAnThucTap.Model.Gradelevel", "Gradelevel")
+                        .WithMany("Blockleaders")
+                        .HasForeignKey("Gradelevelid")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("DuAnThucTap.Model.Schoolyear", "Schoolyear")
+                        .WithMany()
+                        .HasForeignKey("Schoolyearid")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("DuAnThucTap.Model.Schoolyear", null)
+                        .WithOne("Blockleaders")
+                        .HasForeignKey("DuAnThucTap.Model.Blockleader", "Schoolyearid1");
+
+                    b.HasOne("DuAnThucTap.Model.Teacher", "Teacher")
+                        .WithMany("Blockleaders")
+                        .HasForeignKey("Teacherid")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Gradelevel");
+
+                    b.Navigation("Schoolyear");
+
+                    b.Navigation("Teacher");
+                });
+
+            modelBuilder.Entity("DuAnThucTap.Model.Campus", b =>
+                {
+                    b.HasOne("DuAnThucTap.Model.Schoolinformation", "Schoolinformation")
+                        .WithMany("Campuses")
+                        .HasForeignKey("Schoolinfoid")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Schoolinformation");
+                });
+
             modelBuilder.Entity("DuAnThucTap.Model.Class", b =>
                 {
                     b.HasOne("DuAnThucTap.Model.Classtype", "Classtype")
@@ -644,7 +818,7 @@ namespace DuAnThucTap.Migrations
                         .WithMany("Classes")
                         .HasForeignKey("Schoolyearid");
 
-                    b.HasOne("DuAnThucTap.Model.Subject", "Subject")
+                    b.HasOne("DuAnThucTap.Model.Subject", null)
                         .WithMany("Classes")
                         .HasForeignKey("Subjectid");
 
@@ -658,9 +832,26 @@ namespace DuAnThucTap.Migrations
 
                     b.Navigation("Schoolyear");
 
-                    b.Navigation("Subject");
-
                     b.Navigation("Teacher");
+                });
+
+            modelBuilder.Entity("DuAnThucTap.Model.ClassSubject", b =>
+                {
+                    b.HasOne("DuAnThucTap.Model.Class", "Class")
+                        .WithMany("ClassSubjects")
+                        .HasForeignKey("Classid")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("DuAnThucTap.Model.Subject", "Subject")
+                        .WithMany("ClassSubjects")
+                        .HasForeignKey("Subjectid")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Class");
+
+                    b.Navigation("Subject");
                 });
 
             modelBuilder.Entity("DuAnThucTap.Model.Departmentleader", b =>
@@ -738,7 +929,9 @@ namespace DuAnThucTap.Migrations
                 {
                     b.HasOne("DuAnThucTap.Model.Schoolinformation", "Schoolinformation")
                         .WithMany("Schoolyears")
-                        .HasForeignKey("SchoolinformationSchoolinfoid");
+                        .HasForeignKey("Schoolinfoid")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Schoolinformation");
                 });
@@ -758,15 +951,21 @@ namespace DuAnThucTap.Migrations
                 {
                     b.HasOne("DuAnThucTap.Model.Department", "Department")
                         .WithMany("Subjects")
-                        .HasForeignKey("Departmentid");
+                        .HasForeignKey("Departmentid")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("DuAnThucTap.Model.Schoolyear", "Schoolyear")
                         .WithMany("Subjects")
-                        .HasForeignKey("Schoolyearid");
+                        .HasForeignKey("Schoolyearid")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("DuAnThucTap.Model.Subjecttype", "Subjecttype")
                         .WithMany("Subjects")
-                        .HasForeignKey("Subjecttypeid");
+                        .HasForeignKey("Subjecttypeid")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Department");
 
@@ -809,10 +1008,14 @@ namespace DuAnThucTap.Migrations
                         .IsRequired();
 
                     b.HasOne("DuAnThucTap.Model.Subject", "Subject")
-                        .WithMany("Teachingassignments")
+                        .WithMany()
                         .HasForeignKey("Subjectid")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.HasOne("DuAnThucTap.Model.Subject", null)
+                        .WithMany("Teachingassignments")
+                        .HasForeignKey("Subjectid1");
 
                     b.HasOne("DuAnThucTap.Model.Teacher", "Teacher")
                         .WithMany()
@@ -835,6 +1038,38 @@ namespace DuAnThucTap.Migrations
                     b.Navigation("Topic");
                 });
 
+            modelBuilder.Entity("TeacherConcurrentSubject", b =>
+                {
+                    b.HasOne("DuAnThucTap.Model.Schoolyear", "SchoolYear")
+                        .WithMany()
+                        .HasForeignKey("SchoolYearID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("DuAnThucTap.Model.Subject", "Subject")
+                        .WithMany()
+                        .HasForeignKey("SubjectID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("DuAnThucTap.Model.Teacher", "Teacher")
+                        .WithMany()
+                        .HasForeignKey("TeacherID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("SchoolYear");
+
+                    b.Navigation("Subject");
+
+                    b.Navigation("Teacher");
+                });
+
+            modelBuilder.Entity("DuAnThucTap.Model.Class", b =>
+                {
+                    b.Navigation("ClassSubjects");
+                });
+
             modelBuilder.Entity("DuAnThucTap.Model.Classtype", b =>
                 {
                     b.Navigation("Classes");
@@ -851,6 +1086,8 @@ namespace DuAnThucTap.Migrations
 
             modelBuilder.Entity("DuAnThucTap.Model.Gradelevel", b =>
                 {
+                    b.Navigation("Blockleaders");
+
                     b.Navigation("Classes");
                 });
 
@@ -861,6 +1098,8 @@ namespace DuAnThucTap.Migrations
 
             modelBuilder.Entity("DuAnThucTap.Model.Schoolinformation", b =>
                 {
+                    b.Navigation("Campuses");
+
                     b.Navigation("Grades");
 
                     b.Navigation("Schoolyears");
@@ -868,6 +1107,8 @@ namespace DuAnThucTap.Migrations
 
             modelBuilder.Entity("DuAnThucTap.Model.Schoolyear", b =>
                 {
+                    b.Navigation("Blockleaders");
+
                     b.Navigation("Classes");
 
                     b.Navigation("Semesters");
@@ -884,6 +1125,8 @@ namespace DuAnThucTap.Migrations
 
             modelBuilder.Entity("DuAnThucTap.Model.Subject", b =>
                 {
+                    b.Navigation("ClassSubjects");
+
                     b.Navigation("Classes");
 
                     b.Navigation("Grades");
@@ -900,6 +1143,8 @@ namespace DuAnThucTap.Migrations
 
             modelBuilder.Entity("DuAnThucTap.Model.Teacher", b =>
                 {
+                    b.Navigation("Blockleaders");
+
                     b.Navigation("Classes");
                 });
 

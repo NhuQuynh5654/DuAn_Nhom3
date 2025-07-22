@@ -1,87 +1,106 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
+﻿using DuAnThucTap.Model;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using DuAnThucTap.Data;
-using DuAnThucTap.Model;
-using DuAnThucTap.Irepository;
-using DuAnThucTap.DTO;
 
-namespace DuAnThucTap.Controllers
+[ApiController]
+[Route("api/[controller]")]
+public class ClassesController : ControllerBase
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class ClassesController : ControllerBase
+    private readonly IClassService _service;
+
+    public ClassesController(IClassService service)
     {
-        private readonly IClassService _classService;
-        public ClassesController(IClassService classService)
-        {
-            _classService = classService;
-        }
+        _service = service;
+    }
 
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<ClassInfoDto>>> GetAllClasses()
-        {
-            var classes = await _classService.GetAllClass();
-            return Ok(classes);
-        }
+    [HttpGet]
+    public async Task<IActionResult> GetClasses(
+        [FromQuery] string? search,
+        [FromQuery] int page = 1,
+        [FromQuery] int pageSize = 5)
+    {
+        var result = await _service.GetAllAsync(search, page, pageSize);
 
-        [HttpGet("{id}")]
-        public async Task<ActionResult<IEnumerable<ClassInfoDto>>> GetClassInfo(int id)
+        if (result.Count == 0)
         {
-            var classInfos = await _classService.GetInfoClass(id);
-            return Ok(classInfos);
-        }
-
-        [HttpGet("{id}")]
-        public async Task<ActionResult<ClassInfoDto>> GetClassById(int id)
-        {
-            var classInfo = await _classService.GetByIdAsync(id);
-            if (classInfo == null)
+            return NotFound(new
             {
-                return NotFound();
-            }
-            return Ok(classInfo);
+                message = "Không tìm thấy lớp học nào phù hợp.",
+                search = search,
+                page = page
+            });
         }
 
-        [HttpPost]
-        public async Task<ActionResult<Class>> CreateClass(Class classEntity)
+        return Ok(new
         {
-            if (classEntity == null)
-            {
-                return BadRequest("Invalid class data.");
-            }
-            var createdClass = await _classService.CreateAsync(classEntity);
-            return CreatedAtAction(nameof(GetClassById), new { id = createdClass.Classid }, createdClass);
-        }
+            message = "Lấy danh sách lớp học thành công",
+            currentPage = result.PageIndex,
+            totalPages = result.TotalPage,
+            data = result
+        });
+    }
 
-        [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateClass(int id, Class classEntity)
-        {
-            if (id != classEntity.Classid)
-            {
-                return BadRequest("Class ID mismatch.");
-            }
-            var updated = await _classService.UpdateAsync(id, classEntity);
-            if (!updated)
-            {
-                return NotFound();
-            }
-            return NoContent();
-        }
 
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteClass(int id)
+    [HttpGet("{id}")]
+    public async Task<IActionResult> GetClass(int id)
+    {
+        var data = await _service.GetByIdAsync(id);
+        if (data == null)
+            return NotFound(new { message = "Không tìm thấy lớp học." });
+
+        return Ok(data);
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> PostClass([FromBody] CreateClassDto dto)
+    {
+        if (!ModelState.IsValid)
+            return BadRequest(ModelState);
+
+        try
         {
-            var deleted = await _classService.DeleteAsync(id);
-            if (!deleted)
-            {
-                return NotFound();
-            }
-            return NoContent();
+            var created = await _service.CreateAsync(dto);
+            return CreatedAtAction(nameof(GetClass), new { id = created.Classid },
+                new { message = "Tạo lớp học thành công", data = created });
         }
+        catch (ArgumentException ex)
+        {
+            return BadRequest(new { message = ex.Message });
+        }
+    }
+
+    [HttpPut("{id}")]
+    public async Task<IActionResult> PutClass(int id, [FromBody] CreateClassDto dto)
+    {
+        if (!ModelState.IsValid)
+            return BadRequest(ModelState);
+
+        try
+        {
+            var updated = await _service.UpdateAsync(id, dto);
+
+            if (updated == null)
+                return NotFound(new { message = "Không tìm thấy lớp học để cập nhật." });
+
+            return Ok(new
+            {
+                message = "Cập nhật lớp học thành công",
+                data = updated // trả về luôn object mới để client hiển thị
+            });
+        }
+        catch (ArgumentException ex)
+        {
+            return BadRequest(new { message = ex.Message });
+        }
+    }
+
+
+    [HttpDelete("{id}")]
+    public async Task<IActionResult> DeleteClass(int id)
+    {
+        var success = await _service.DeleteAsync(id);
+        if (!success)
+            return NotFound(new { message = "Không tìm thấy lớp học để xoá." });
+
+        return Ok(new { message = "Xoá lớp học thành công" });
     }
 }

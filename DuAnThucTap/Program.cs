@@ -1,4 +1,8 @@
-using DuAnThucTap.Data;
+﻿using DuAnThucTap.Data;
+using DuAnThucTap.Irepository;
+using DuAnThucTap.Service;
+using DuAnThucTap.Services;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,6 +14,29 @@ builder.Services.AddScoped<ISchoolyearService, SchoolyearService>();
 builder.Services.AddScoped<IDepartmentService, DepartmentService>();
 builder.Services.AddScoped<ISubjectService, SubjectService>();
 builder.Services.AddScoped<ISubjecttypeService, SubjecttypeService>();
+builder.Services.AddScoped<IClassService, ClassService>();
+builder.Services.AddScoped<IGradetypeService, GradetypeService>();
+builder.Services.AddScoped<IDepartmentleadersService, DepartmentleaderService>();
+builder.Services.AddScoped<ITeacherConcurrentSubjectService, TeacherConcurrentSubjectService>();
+
+builder.Services.Configure<ApiBehaviorOptions>(options =>
+{
+    options.InvalidModelStateResponseFactory = context =>
+    {
+        var errors = context.ModelState.ToDictionary(
+            kv => kv.Key,
+            kv => kv.Value!.Errors.Select(e => e.ErrorMessage).ToArray()
+        );
+
+        return new BadRequestObjectResult(new
+        {
+            success = false,
+            message = "Dữ liệu không hợp lệ!",
+            errors
+        });
+    };
+});
+
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));

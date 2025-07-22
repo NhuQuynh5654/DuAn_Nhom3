@@ -19,4 +19,26 @@ namespace DuAnThucTap.Model
         [JsonIgnore]
         public virtual Teacher? Teacher { get; set; } = null!;
     }
+
+    public class DepartmentleaderCreateDto
+    {
+        [Required(ErrorMessage = "Departmentid không được bỏ trống")]
+        public int Departmentid { get; set; }
+
+        [Required(ErrorMessage = "Schoolyearid không được bỏ trống")]
+        public int Schoolyearid { get; set; }
+
+        [Required(ErrorMessage = "Teacherid không được bỏ trống")]
+        public int Teacherid { get; set; }
+
+        public DateTime? Startdate { get; set; }
+        public DateTime? Enddate { get; set; }
+    }
+
+    public class PaginationDto
+    {
+        public int PageNumber { get; set; } = 1;
+        public int PageSize { get; set; } = 10;
+    }
+
 }
