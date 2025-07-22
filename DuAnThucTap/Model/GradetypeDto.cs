@@ -11,12 +11,12 @@ namespace DuAnThucTap.DTOs
         [Range(1, 10, ErrorMessage = "Hệ số điểm phải nằm trong khoảng 1 đến 10")]
         public decimal? Weightingfactor { get; set; }
 
-        [Required(ErrorMessage = "Số lượng tối thiểu học kỳ 1 là bắt buộc")]
-        [Range(1, 10, ErrorMessage = "Tối thiểu học kỳ 1 phải nằm trong 1-10")]
+        [Required(ErrorMessage = "cột điểm tối thiểu học kỳ 1 là bắt buộc")]
+        [Range(1, 10, ErrorMessage = "cột điểm Tối thiểu học kỳ 1 phải nằm trong 1-10")]
         public int? Mininstancessemester1 { get; set; }
 
-        [Required(ErrorMessage = "Số lượng tối thiểu học kỳ 2 là bắt buộc")]
-        [Range(1, 10, ErrorMessage = "Tối thiểu học kỳ 2 phải nằm trong 1-10")]
+        [Required(ErrorMessage = "cột điểm tối thiểu học kỳ 2 là bắt buộc")]
+        [Range(1, 10, ErrorMessage = "cột điểm Tối thiểu học kỳ 2 phải nằm trong 1-10")]
         public int? Mininstancessemester2 { get; set; }
     }
 }

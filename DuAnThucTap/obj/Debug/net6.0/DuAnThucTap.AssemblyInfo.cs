@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DuAnThucTap")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+31dbfbff83015e50cdb5427185d59a66eb48f4a4")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8abfa3c065ea4c615d8c81b015b82a149850b21f")]
 [assembly: System.Reflection.AssemblyProductAttribute("DuAnThucTap")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DuAnThucTap")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

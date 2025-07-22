@@ -6,7 +6,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace DuAnThucTap.Migrations
 {
-    public partial class id : Migration
+    public partial class ide5 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

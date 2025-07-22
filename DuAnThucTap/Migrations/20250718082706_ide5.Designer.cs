@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace DuAnThucTap.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250718081650_id")]
-    partial class id
+    [Migration("20250718082706_ide5")]
+    partial class ide5
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

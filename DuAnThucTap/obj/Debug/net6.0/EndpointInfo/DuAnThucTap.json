@@ -1,8 +1,8 @@
 {
   "openapi": "3.0.1",
   "info": {
-    "title": "DuAnThucTap",
-    "version": "1.0"
+    "title": "DuAnThucTap API",
+    "version": "v1"
   },
   "paths": {
     "/api/Classes": {
@@ -161,6 +161,15 @@
       "get": {
         "tags": [
           "Classtypes"
+        ],
+        "parameters": [
+          {
+            "name": "isActive",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          }
         ],
         "responses": {
           "200": {
@@ -2143,8 +2152,7 @@
             "nullable": true
           },
           "isactive": {
-            "type": "boolean",
-            "nullable": true
+            "type": "boolean"
           },
           "createdat": {
             "type": "string",

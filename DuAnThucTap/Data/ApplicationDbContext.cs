@@ -1,5 +1,6 @@
 ﻿using DuAnThucTap.Model;
 using Microsoft.EntityFrameworkCore;
+using System.Text.Json.Serialization;
 
 namespace DuAnThucTap.Data
 {
@@ -10,50 +11,42 @@ namespace DuAnThucTap.Data
         {
         }
 
-        public virtual DbSet<Class> Classes { get; set; } = null!;
-        public virtual DbSet<Classtype> Classtypes { get; set; } = null!;
-        public virtual DbSet<Department> Departments { get; set; } = null!;
-        public virtual DbSet<Grade> Grades { get; set; } = null!;
-        public virtual DbSet<Gradelevel> Gradelevels { get; set; } = null!;
-        public virtual DbSet<Schoolinformation> Schoolinformations { get; set; } = null!;
-        public virtual DbSet<Schoolyear> Schoolyears { get; set; } = null!;
-        public virtual DbSet<Semester> Semesters { get; set; } = null!;
-        public virtual DbSet<Subject> Subjects { get; set; } = null!;
-        public virtual DbSet<Subjecttype> Subjecttypes { get; set; } = null!;
-        public virtual DbSet<Teacher> Teachers { get; set; } = null!;
-        public virtual DbSet<Teachingassignment> Teachingassignments { get; set; } = null!;
-        public virtual DbSet<Topiclist> Topiclists { get; set; } = null!;
-        public virtual DbSet<Departmentleader> Departmentleaders { get; set; } = null!;
-        public DbSet<ClassSubject> ClassSubjects { get; set; }
+        // 🔹 DbSet cho tất cả entity
+        public DbSet<Class> Classes { get; set; } = null!;
+        public DbSet<Classtype> Classtypes { get; set; } = null!;
+        public DbSet<Department> Departments { get; set; } = null!;
+        public DbSet<Grade> Grades { get; set; } = null!;
+        public DbSet<Gradelevel> Gradelevels { get; set; } = null!;
+        public DbSet<Schoolinformation> Schoolinformations { get; set; } = null!;
+        public DbSet<Schoolyear> Schoolyears { get; set; } = null!;
+        public DbSet<Semester> Semesters { get; set; } = null!;
+        public DbSet<Subject> Subjects { get; set; } = null!;
+        public DbSet<Subjecttype> Subjecttypes { get; set; } = null!;
+        public DbSet<Teacher> Teachers { get; set; } = null!;
+        public DbSet<Teachingassignment> Teachingassignments { get; set; } = null!;
+        public DbSet<Topiclist> Topiclists { get; set; } = null!;
+        public DbSet<Departmentleader> Departmentleaders { get; set; } = null!;
+        public DbSet<ClassSubject> ClassSubjects { get; set; } = null!;
         public DbSet<Blockleader> Blockleaders { get; set; } = null!;
         public DbSet<Campus> Campuses { get; set; } = null!;
         public DbSet<Gradetype> Gradetypes { get; set; } = null!;
 
-
-
-        // 👇 Add this part INSIDE the class
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            base.OnModelCreating(modelBuilder);
-
+            // 🔹 Schoolinformation
             modelBuilder.Entity<Schoolinformation>()
                 .HasKey(s => s.Schoolinfoid);
 
-            base.OnModelCreating(modelBuilder);
-
-            modelBuilder.Entity<Schoolinformation>()
-                .HasKey(s => s.Schoolinfoid);
-
+            // 🔹 Teachingassignment
             modelBuilder.Entity<Teachingassignment>()
                 .HasKey(t => t.Assignmentid);
 
             modelBuilder.Entity<Teachingassignment>()
-     .HasOne(t => t.Topic)
-     .WithMany(tl => tl.Teachingassignments)
-     .HasForeignKey(t => t.Topicid);
+                .HasOne(t => t.Topic)
+                .WithMany(tl => tl.Teachingassignments)
+                .HasForeignKey(t => t.Topicid);
 
-            base.OnModelCreating(modelBuilder);
-
+            // 🔹 ClassSubject (nhiều-nhiều)
             modelBuilder.Entity<ClassSubject>()
                 .HasKey(cs => new { cs.Classid, cs.Subjectid });
 
@@ -66,10 +59,8 @@ namespace DuAnThucTap.Data
                 .HasOne(cs => cs.Subject)
                 .WithMany(s => s.ClassSubjects)
                 .HasForeignKey(cs => cs.Subjectid);
+
+            base.OnModelCreating(modelBuilder); // ✅ Gọi đúng 1 lần, cuối cùng
         }
-
-  
-        
-
     }
 }
